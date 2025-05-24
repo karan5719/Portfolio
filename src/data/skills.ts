@@ -1,74 +1,66 @@
-import React, { JSX } from 'react'
-import { 
-  Code2, 
-  Layout, 
-  Database, 
-  GitBranch, 
-  Terminal,
-  Palette,
-  Globe,
-  Server,
-  Settings,
-  Cpu
-} from 'lucide-react'
+import React from 'react'
+import { Layout, Server, Palette, Database, GitBranch, Globe, Terminal, Code2 } from 'lucide-react'
 
 export interface Skill {
   name: string
-  icon: JSX.Element
-}
-
-const iconClasses = {
-  frontend: "w-8 h-8 text-purple-500",
-  backend: "w-8 h-8 text-blue-500",
-  design: "w-8 h-8 text-pink-500",
-  database: "w-8 h-8 text-green-500",
-  git: "w-8 h-8 text-orange-500",
-  web: "w-8 h-8 text-cyan-500",
-  terminal: "w-8 h-8 text-gray-500",
-  code: "w-8 h-8 text-indigo-500",
-  system: "w-8 h-8 text-yellow-500",
-  performance: "w-8 h-8 text-red-500"
+  icon: string
+  color?: string
 }
 
 export const skills: Skill[] = [
   {
     name: 'HTML',
-    icon: React.createElement(Layout, { className: iconClasses.frontend })
-  },
-  {
-    name: 'PYTHON',
-    icon: React.createElement(Server, { className: iconClasses.backend })
+    icon: '/icons/html5.svg',
+    color: '#E44D26'
   },
   {
     name: 'CSS',
-    icon: React.createElement(Palette, { className: iconClasses.design })
+    icon: '/icons/css3.svg',
+    color: '#1572B6'
   },
   {
-    name: 'MYSQL',
-    icon: React.createElement(Database, { className: iconClasses.database })
+    name: 'JavaScript',
+    icon: '/icons/javascript.svg',
+    color: '#F7DF1E'
   },
   {
-    name: 'REACT+TYPESCRPIT',
-    icon: React.createElement(GitBranch, { className: iconClasses.git })
+    name: 'Tailwind CSS',
+    icon: '/icons/tailwindcss.svg',
+    color: '#38B2AC'
   },
   {
-    name: 'JAVASCRIPT',
-    icon: React.createElement(Globe, { className: iconClasses.web })
+    name: 'Express.js',
+    icon: '/icons/express.svg',
+    color: '#000000'
   },
   {
-    name: 'C PROGRAMMING',
-    icon: React.createElement(Terminal, { className: iconClasses.terminal })
+    name: 'Node.js',
+    icon: '/icons/nodejs.svg',
+    color: '#339933'
   },
   {
-    name: 'NUMPY',
-    icon: React.createElement(Code2, { className: iconClasses.code })
+    name: 'React',
+    icon: '/icons/react.svg',
+    color: '#61DAFB'
   },
   {
-    name: 'PANDAS',
-    icon: React.createElement(Globe, { className: iconClasses.web })
+    name: 'Python',
+    icon: '/icons/python.svg',
+    color: '#3776AB'
   },
   {
-    name: 'Clean Code',
-    icon: React.createElement(Code2, { className: iconClasses.code })
+    name: 'Machine Learning',
+    icon: '/icons/ml.svg',
+    color: '#FF6B6B'
   },
+  {
+    name: 'MySQL',
+    icon: '/icons/mysql.svg',
+    color: '#00758F'
+  },
+  {
+    name: 'TypeScript',
+    icon: '/icons/typescript.svg',
+    color: '#3178C6'
+  }
 ]

@@ -42,7 +42,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#0a0a0a]">
       <Header activeSection={activeSection} scrollToSection={scrollToSection} />
       <main>
         <section id="home" className="min-h-screen">

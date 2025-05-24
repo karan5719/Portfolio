@@ -1,5 +1,4 @@
 import * as XLSX from 'xlsx';
-import { readFileSync, existsSync, writeFileSync } from 'fs';
 
 interface ContactFormData {
   name: string;
@@ -8,39 +7,67 @@ interface ContactFormData {
   timestamp: string;
 }
 
-const EXCEL_FILE = 'contact_submissions.xlsx';
 const SHEET_NAME = 'Contact Form Submissions';
+const FILE_NAME = 'contact_submissions.xlsx';
+const STORAGE_KEY = 'contact_form_data';
 
-export const saveToExcel = (formData: Omit<ContactFormData, 'timestamp'>) => {
+export const saveSubmission = (formData: Omit<ContactFormData, 'timestamp'>) => {
   try {
-    let workbook: XLSX.WorkBook;
-    let worksheet: XLSX.WorkSheet;
-    
-    // Add timestamp to the data
-    const submissionData: ContactFormData = {
+    let existingData: ContactFormData[] = [];
+
+    // Add timestamp to the new submission
+    const newSubmission: ContactFormData = {
       ...formData,
       timestamp: new Date().toLocaleString()
     };
 
-    // Check if file exists
-    if (existsSync(EXCEL_FILE)) {
-      // Read existing file
-      const fileData = readFileSync(EXCEL_FILE);
-      workbook = XLSX.read(fileData);
-      worksheet = workbook.Sheets[SHEET_NAME];
-    } else {
-      // Create new workbook
-      workbook = XLSX.utils.book_new();
-      worksheet = XLSX.utils.json_to_sheet([]);
-      XLSX.utils.book_append_sheet(workbook, worksheet, SHEET_NAME);
+    try {
+      // Try to get existing data from localStorage
+      const storedData = localStorage.getItem(STORAGE_KEY);
+      if (storedData) {
+        existingData = JSON.parse(storedData);
+      }
+    } catch (error) {
+      console.log('No existing data found in localStorage');
     }
 
-    // Convert worksheet to JSON to append new data
-    const jsonData = (worksheet ? XLSX.utils.sheet_to_json(worksheet) : []) as ContactFormData[];
-    jsonData.push(submissionData);
+    // Combine existing data with new submission
+    const allData = [...existingData, newSubmission];
 
-    // Convert back to worksheet with headers
-    worksheet = XLSX.utils.json_to_sheet(jsonData, {
+    // Save updated data to localStorage
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(allData));
+
+    return true;
+  } catch (error) {
+    console.error('Error saving submission:', error);
+    return false;
+  }
+};
+
+export const downloadAllSubmissions = () => {
+  try {
+    // Initialize workbook
+    const workbook = XLSX.utils.book_new();
+    let allData: ContactFormData[] = [];
+
+    // Get all submissions from localStorage
+    try {
+      const storedData = localStorage.getItem(STORAGE_KEY);
+      if (storedData) {
+        allData = JSON.parse(storedData);
+      }
+    } catch (error) {
+      console.log('No existing data found in localStorage');
+      return false;
+    }
+
+    if (allData.length === 0) {
+      console.log('No submissions to download');
+      return false;
+    }
+
+    // Create worksheet with all data
+    const worksheet = XLSX.utils.json_to_sheet(allData, {
       header: ['name', 'email', 'message', 'timestamp']
     });
 
@@ -53,7 +80,7 @@ export const saveToExcel = (formData: Omit<ContactFormData, 'timestamp'>) => {
       timestamp: 0
     };
 
-    jsonData.forEach((row: ContactFormData) => {
+    allData.forEach((row: ContactFormData) => {
       (Object.keys(row) as Array<keyof ContactFormData>).forEach(key => {
         const value = String(row[key]);
         colWidths[key] = Math.min(
@@ -67,15 +94,34 @@ export const saveToExcel = (formData: Omit<ContactFormData, 'timestamp'>) => {
       wch: colWidths[key]
     }));
 
-    workbook.Sheets[SHEET_NAME] = worksheet;
+    // Add the worksheet to the workbook
+    XLSX.utils.book_append_sheet(workbook, worksheet, SHEET_NAME);
 
-    // Write to file
-    const excelBuffer = XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' });
-    writeFileSync(EXCEL_FILE, excelBuffer);
+    // Generate and download the file with all submissions
+    XLSX.writeFile(workbook, FILE_NAME);
 
     return true;
   } catch (error) {
-    console.error('Error saving to Excel:', error);
+    console.error('Error downloading submissions:', error);
     return false;
   }
+};
+
+export const readExcelFile = async (file: File): Promise<ContactFormData[]> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = new Uint8Array(e.target?.result as ArrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const worksheet = workbook.Sheets[SHEET_NAME];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet) as ContactFormData[];
+        resolve(jsonData);
+      } catch (error) {
+        reject(error);
+      }
+    };
+    reader.onerror = (error) => reject(error);
+    reader.readAsArrayBuffer(file);
+  });
 }; 
