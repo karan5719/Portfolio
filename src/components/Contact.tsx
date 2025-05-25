@@ -1,15 +1,14 @@
 import React, { FormEvent, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, User, ArrowRight, Github, Linkedin, Download } from 'lucide-react'
+import { Mail, User, ArrowRight, Github, Linkedin } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { saveSubmission, downloadAllSubmissions } from '@/utils/excelUtils'
+import { saveSubmission } from '@/utils/excelUtils'
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(false)
-  const [isDownloading, setIsDownloading] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,32 +28,16 @@ export default function Contact() {
       const success = saveSubmission(formData)
 
       if (success) {
-        alert('Message saved successfully!')
+        alert('Message sent successfully!')
         setFormData({ name: '', email: '', message: '' })
       } else {
-        throw new Error('Failed to save message')
+        throw new Error('Failed to send message')
       }
     } catch (error) {
-      alert('Failed to save message. Please try again.')
+      alert('Failed to send message. Please try again.')
       console.error('Error:', error)
     } finally {
       setIsLoading(false)
-    }
-  }
-
-  const handleDownload = async () => {
-    try {
-      setIsDownloading(true)
-      const success = downloadAllSubmissions()
-      
-      if (!success) {
-        alert('No messages to download or download failed')
-      }
-    } catch (error) {
-      alert('Failed to download messages. Please try again.')
-      console.error('Error:', error)
-    } finally {
-      setIsDownloading(false)
     }
   }
 
@@ -129,17 +112,8 @@ export default function Contact() {
           >
             <Card className="bg-[#111] border-gray-800">
               <CardHeader>
-                <CardTitle className="text-2xl flex justify-between items-center text-gray-100">
-                  <span>Send Me a Message</span>
-                  <Button
-                    variant="outline"
-                    onClick={handleDownload}
-                    disabled={isDownloading}
-                    className="flex items-center gap-2 px-3 py-1 text-sm bg-purple-400/10 border-purple-400/20 text-purple-400 hover:bg-purple-400/20 hover:border-purple-400/30"
-                  >
-                    <Download className="h-4 w-4" />
-                    {isDownloading ? 'Downloading...' : 'Download Messages'}
-                  </Button>
+                <CardTitle className="text-2xl text-gray-100">
+                  Send Me a Message
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -191,7 +165,7 @@ export default function Contact() {
                     disabled={isLoading}
                   >
                     {isLoading ? (
-                      "Saving..."
+                      "Sending..."
                     ) : (
                       <>
                         Send Message <ArrowRight className="ml-2 h-5 w-5" />
