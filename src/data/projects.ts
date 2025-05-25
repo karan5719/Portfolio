@@ -34,6 +34,6 @@ export const projects: Project[] = [
     description: "A responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features smooth animations and modern design.",
     image: "public/projects/portfolio.png",
     tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/yourusername/portfolio"
+    github: "https://github.com/karan5719/Portfolio"
   }
 ]

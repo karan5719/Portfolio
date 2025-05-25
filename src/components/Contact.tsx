@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { saveSubmission } from '@/utils/excelUtils'
+import { saveMessage } from '@/utils/api'
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(false)
@@ -25,7 +25,7 @@ export default function Contact() {
 
     try {
       setIsLoading(true)
-      const success = saveSubmission(formData)
+      const success = await saveMessage(formData)
 
       if (success) {
         alert('Message sent successfully!')
