@@ -10,8 +10,8 @@ interface HeroProps {
 export default function Hero({ scrollToSection }: HeroProps) {
   const handleDownloadResume = () => {
     const link = document.createElement('a')
-    link.href = '/newcv.pdf'
-    link.download = 'Resumehimanshu.pdf'
+    link.href = '/Resumehimanshu.pdf'
+    link.download = 'Himanshu_Kumar_Resume.pdf'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
