@@ -80,18 +80,6 @@ export default function About() {
                 I'm constantly learning, growing, and pushing boundaries to turn innovative ideas into real-world solutions.
               </p>
             </div>
-
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <div className="bg-purple-400/10 border border-purple-400/20 px-6 py-3 rounded-full hover:border-purple-400/50 transition-colors duration-300">
-                <span className="text-purple-400 font-semibold">Python</span>
-              </div>
-              <div className="bg-purple-400/10 border border-purple-400/20 px-6 py-3 rounded-full hover:border-purple-400/50 transition-colors duration-300">
-                <span className="text-purple-400 font-semibold">Machine Learning</span>
-              </div>
-              <div className="bg-purple-400/10 border border-purple-400/20 px-6 py-3 rounded-full hover:border-purple-400/50 transition-colors duration-300">
-                <span className="text-purple-400 font-semibold">React+TypeScript</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
