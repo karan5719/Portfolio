@@ -31,9 +31,10 @@ export const projects: Project[] = [
   },
   {
     title: "Modern Portfolio Website",
-    description: "A responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features smooth animations and modern design.",
+    description: "A responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features smooth animations, modern design, dark theme, and seamless user experience. Includes sections for projects, skills, and a contact form.",
     image: "public/projects/portfolio.png",
     tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/karan5719/Portfolio"
+    github: "https://github.com/karan5719/Portfolio",
+    demo: "https://himanshukumar-portfolio.netlify.app"
   }
 ]
