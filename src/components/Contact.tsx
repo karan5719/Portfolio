@@ -93,7 +93,7 @@ export default function Contact() {
                   <Github className="h-6 w-6" />
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/himanshu-kumar-a67bbb275/" 
+                  href="https://www.linkedin.com/in/himanshukumar-s/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-300"

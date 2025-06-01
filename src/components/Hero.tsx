@@ -24,22 +24,22 @@ export default function Hero({ scrollToSection }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 via-transparent to-blue-500/5" />
       </div>
 
-      <div className="section-container pt-20 md:pt-0">
+      <div className="section-container pt-28 md:pt-32">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Content */}
-          <div className="space-y-6 md:space-y-8 lg:max-w-[50%] mt-8 md:mt-0">
+          <div className="space-y-8 md:space-y-10 lg:max-w-[50%] mt-0">
             {/* Introduction */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="space-y-2"
+              className="space-y-4"
             >
-              <h2 className="text-xl sm:text-2xl text-purple-400">Hi, my name is</h2>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-100">
+              <h2 className="text-xl sm:text-2xl text-purple-400 font-medium">Hi, my name is</h2>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-100 leading-tight">
                 Himanshu Kumar.
               </h1>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-400">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-400 leading-tight">
                 I build things for the web.
               </h1>
             </motion.div>
@@ -61,11 +61,11 @@ export default function Hero({ scrollToSection }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap gap-4 pt-4"
+              className="flex flex-wrap gap-4 pt-2"
             >
               <Button
                 onClick={() => scrollToSection('projects')}
-                className="group relative px-6 py-3 text-base sm:text-lg"
+                className="group relative px-6 py-3 text-base sm:text-lg font-medium"
               >
                 Check out my work
                 <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -73,7 +73,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
               <Button
                 onClick={handleDownloadResume}
                 variant="outline"
-                className="group relative px-6 py-3 text-base sm:text-lg"
+                className="group relative px-6 py-3 text-base sm:text-lg font-medium"
               >
                 Resume
                 <Download className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
@@ -85,7 +85,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex items-center gap-6 pt-8"
+              className="flex items-center gap-6 pt-4"
             >
               <div className="h-[1px] w-32 bg-gray-800" />
               <div className="flex gap-6">
@@ -106,7 +106,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/himanshu-kumar-a67bbb275/"
+                  href="https://www.linkedin.com/in/himanshukumar-s/"
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
                   target="_blank"
                   rel="noopener noreferrer"

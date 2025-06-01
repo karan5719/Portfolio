@@ -16,7 +16,7 @@ export default function Footer() {
     },
     {
       name: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/himanshu-kumar-a67bbb275/',
+      href: 'https://www.linkedin.com/in/himanshukumar-s/',
       icon: <Linkedin className="h-6 w-6" />,
     },
   ]
