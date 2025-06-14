@@ -106,7 +106,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com/in/himanshukumar30"
+                  href="https://www.linkedin.com/in/himanshukumar-s/"
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
