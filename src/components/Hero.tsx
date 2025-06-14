@@ -90,7 +90,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
               <div className="h-[1px] w-32 bg-gray-800" />
               <div className="flex gap-6">
                 <a
-                  href="mailto:himanshukumar3007@gmail.com"
+                  href="mailto:himanshusingh05719@gmail.com"
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
