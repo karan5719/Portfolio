@@ -98,7 +98,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                   <Mail className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://github.com/himanshukumar30"
+                  href="https://github.com/karan5719"
                   className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
