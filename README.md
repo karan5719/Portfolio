@@ -59,8 +59,6 @@ npm run dev
 yarn dev
 ```
 
-5. Open [http://localhost:5173](http://localhost:5173) to view it in the browser
-
 ## 📁 Project Structure
 
 ```
@@ -129,10 +127,6 @@ The portfolio is fully responsive and tested on:
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/karan5719/Portfolio/issues).
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 📧 Contact
 
