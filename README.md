@@ -44,23 +44,6 @@ git clone https://github.com/karan5719/Portfolio.git
 ```bash
 cd Portfolio
 ```
-
-3. Install dependencies
-```bash
-npm install
-# or
-yarn install
-```
-
-4. Start the development server
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-5. Open [http://localhost:5173](http://localhost:5173) to view it in the browser
-
 ## 📁 Project Structure
 
 ```
@@ -80,62 +63,12 @@ portfolio/
 └── tailwind.config.js
 ```
 
-## 🎨 Features in Detail
-
-### Hero Section
-- Professional introduction
-- Animated developer illustration
-- Quick navigation to important sections
-- Social media links
-- Resume download option
-
-### About Section
-- Professional background
-- Career objectives
-- Personal interests
-
-### Skills Section
-- Technical skills with icons
-- Categorized skill sets
-- Interactive skill cards
-
-### Projects Section
-- Featured projects with screenshots
-- Project descriptions
-- Live demo links
-- GitHub repository links
-
-### Contact Section
-- Contact form with validation
-- Social media links
-- Professional email contact
-
-## 🔧 Customization
-
-The portfolio is built to be easily customizable:
-
-1. Update personal information in `src/data/` directory
-2. Modify styles in `tailwind.config.js`
-3. Add/remove sections by modifying components in `src/components/`
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive and tested on:
-- Mobile devices (320px and up)
-- Tablets (768px and up)
-- Desktops (1024px and up)
-- Large screens (1280px and up)
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/karan5719/Portfolio/issues).
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 📧 Contact
 
 Himanshu Kumar - [Himanshusingh05719@gmail.com](mailto:Himanshusingh05719@gmail.com)
 
-Project Link: [https://github.com/karan5719/Portfolio](https://github.com/karan5719/Portfolio) 
+Project Link: [Live Demo](https://portfoliohimans.netlify.app/) 
