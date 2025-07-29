@@ -50,7 +50,7 @@ export default function About() {
             <div className="space-y-6 text-gray-400">
               <p className="text-lg leading-relaxed">
                 Hello! I'm <span className="font-bold text-purple-400">Himanshu Kumar</span>, a passionate 
-                <span className="font-bold text-purple-400"> third-year B.Tech student</span> at 
+                <span className="font-bold text-purple-400"> fourth-year B.Tech student</span> at 
                 <span className="font-bold text-purple-400"> IIIT Kalyani, West Bengal</span>, 
                 specializing in <span className="font-bold text-purple-400">Computer Science and Engineering</span>.
               </p>
