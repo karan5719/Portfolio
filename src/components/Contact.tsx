@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { saveMessage } from '@/utils/api'
+// Removed: import { saveMessage } from '@/utils/api'
 
 export default function Contact() {
   const [isLoading, setIsLoading] = useState(false)
@@ -14,28 +14,34 @@ export default function Contact() {
     email: '',
     message: ''
   })
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    
     if (!formData.name || !formData.email || !formData.message) {
       alert('Please fill in all fields')
       return
     }
-
+    setIsLoading(true)
+    setStatus('idle')
     try {
-      setIsLoading(true)
-      const success = await saveMessage(formData)
-
-      if (success) {
-        alert('Message sent successfully!')
+      const response = await fetch('https://formspree.io/f/xwkgyyqg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
+      })
+      if (response.ok) {
+        setStatus('success')
         setFormData({ name: '', email: '', message: '' })
       } else {
-        throw new Error('Failed to send message')
+        setStatus('error')
       }
     } catch (error) {
-      alert('Failed to send message. Please try again.')
-      console.error('Error:', error)
+      setStatus('error')
     } finally {
       setIsLoading(false)
     }
@@ -117,6 +123,12 @@ export default function Contact() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
+                {status === 'success' && (
+                  <div className="mb-4 text-green-400">Message sent successfully!</div>
+                )}
+                {status === 'error' && (
+                  <div className="mb-4 text-red-400">Failed to send message. Please try again.</div>
+                )}
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
