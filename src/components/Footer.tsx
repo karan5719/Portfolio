@@ -1,5 +1,5 @@
 import React from 'react'
-import { Github, Linkedin, Twitter } from 'lucide-react'
+import { Github, Linkedin, Twitter, Code, Trophy, Zap } from 'lucide-react'
 
 interface SocialLink {
   name: string
@@ -18,6 +18,21 @@ export default function Footer() {
       name: 'LinkedIn',
       href: 'https://www.linkedin.com/in/himanshukumar-s/',
       icon: <Linkedin className="h-6 w-6" />,
+    },
+    {
+      name: 'LeetCode',
+      href: 'https://leetcode.com/u/karan57/',
+      icon: <Code className="h-6 w-6" />,
+    },
+    {
+      name: 'Naukri Code360',
+      href: 'https://www.naukri.com/code360/profile/Karansingh',
+      icon: <Trophy className="h-6 w-6" />,
+    },
+    {
+      name: 'HackerRank',
+      href: 'https://www.hackerrank.com/profile/himanshusingh055',
+      icon: <Zap className="h-6 w-6" />,
     },
   ]
 
