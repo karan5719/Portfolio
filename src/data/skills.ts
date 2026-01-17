@@ -62,5 +62,40 @@ export const skills: Skill[] = [
     name: 'TypeScript',
     icon: '/icons/typescript.svg',
     color: '#3178C6'
+  },
+  {
+    name: 'PyTorch',
+    icon: '/icons/pytorch.svg',
+    color: '#EE4C2C'
+  },
+  {
+    name: 'TensorFlow',
+    icon: '/icons/tensorflow.svg',
+    color: '#FF6F00'
+  },
+  {
+    name: 'Git',
+    icon: '/icons/git.svg',
+    color: '#F05032'
+  },
+  {
+    name: 'GitHub',
+    icon: '/icons/github.svg',
+    color: '#181717'
+  },
+  {
+    name: 'Docker',
+    icon: '/icons/docker.svg',
+    color: '#2496ED'
+  },
+  {
+    name: 'AWS',
+    icon: '/icons/aws.svg',
+    color: '#FF9900'
+  },
+  {
+    name: 'MongoDB',
+    icon: '/icons/mongodb.svg',
+    color: '#47A248'
   }
 ]
