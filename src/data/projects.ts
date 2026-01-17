@@ -16,6 +16,29 @@ export const projects: Project[] = [
     github: "https://github.com/karan5719/Banking_System"
   },
   {
+    title: "Sanskrit Sandhi & POS Tagger",
+    description: "Constructed a hybrid NLP pipeline using a BiLSTM-CRF architecture to automate Sanskrit compound word splitting and POS tagging, achieving 72% accuracy. Created custom tokenization and sequence modeling logic to handle complex phonetic and morphological patterns in the Devanagari script.",
+    image: "/projects/sanskrit-sandhi.png",
+    tags: ["Python", "PyTorch", "CRF", "scikit-learn", "NumPy", "NLTK", "Gradio"],
+    github: "https://github.com/karan5719/sanskrit-sandhi-pos-tagger",
+    demo: "https://huggingface.co/spaces/karan5719/Sanskirt_Sandhi_Pos_Tagger"
+  },
+  {
+    title: "Dashboard-NoteVault",
+    description: "Planned and developed a full-stack productivity platform using Django, integrating note management, project tracking, and goal planning. Modeled normalized relational schemas with secure user-level data isolation to ensure integrity and access control.",
+    image: "/projects/notevault.png",
+    tags: ["Django", "Python", "SQLite3", "HTML5", "CSS3", "JavaScript", "Gunicorn"],
+    github: "https://github.com/karan5719/Dashboard-NoteVault"
+  },
+  {
+    title: "Library Management System",
+    description: "Developed a production-ready library management system using Flask and MySQL with role-based access control. Automated backend workflows for book reservations, circulation management, and fine computation. Hosted scalable backend services on Railway using Gunicorn.",
+    image: "/projects/library-management.png",
+    tags: ["Python", "Flask", "MySQL", "Jinja2", "Gunicorn", "Railway"],
+    github: "https://github.com/karan5719/Library_management_system",
+    demo: "https://librarymanagementsystem-production-86b1.up.railway.app"
+  },
+  {
     title: "Rule-Based Sanskrit Sandhi Splitting",
     description: "A Python-based tool for splitting Sanskrit compound words (Sandhi) into their constituent parts using predefined grammatical rules. Utilizes text files containing nouns, adjectives, and adverbs, and outputs results in CSV format.",
     image: "/projects/ruled.png",
